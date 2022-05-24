@@ -12,18 +12,30 @@
 #             descifrado.append(' ')
 #     return ''.join(descifrado)
 
-codigo = {}
-descifrado = []
+#___________________________________________________________________________________________________________________________
+# codigo = {}
+# descifrado = []
+
+# def rot(string):
+#     for i in range(ord('A'), ord('Z') +1):
+#         if 68<=i<=90: codigo[chr(i)] = chr(i-3)
+#         if 65<=i<=67: codigo[chr(i)] = chr(i+23)
+#     for elemento in string:
+#         if elemento in codigo:
+#             descifrado.append(codigo[elemento])
+#         else:
+#             descifrado.append(' ')
+#     return ''.join(descifrado)
+
+#___________________________________________________________________________________________________________________________
 
 def rot(string):
-    for i in range(ord('A'), ord('Z') +1):
-        if 68<=i<=90: codigo[chr(i)] = chr(i-3)
-        if 65<=i<=67: codigo[chr(i)] = chr(i+23)
-    for elemento in string:
-        if elemento in codigo:
-            descifrado.append(codigo[elemento])
-        else:
-            descifrado.append(' ')
-    return ''.join(descifrado)
+    mensaje = ''
+    for i in string:
+        if 65<=ord(i)<=67: mensaje += chr(ord(i) +23)
+        elif 68<=ord(i)<=90:  mensaje += chr(ord(i) -3)
+        else: mensaje += i
+    return mensaje
+
 
 print(rot('FXLGDGR HVWD QRFKH'))
